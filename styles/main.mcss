@@ -1,0 +1,14 @@
+Main {
+  display: flex
+  height: 100%;
+
+  div.side {
+    width: 50%
+  }
+
+  div.editor {
+    flex: 1
+    display: flex
+    flex-direction: column
+  }
+}

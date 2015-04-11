@@ -1,0 +1,33 @@
+{
+  "name": "web-audio-school",
+  "version": "0.0.0",
+  "description": "An intro to the Web Audio API by a series of self-guided workshops.",
+  "main": "index.js",
+  "dependencies": {
+    "beefy": "^2.1.4",
+    "brace": "^0.5.1",
+    "browserify": "^9.0.8",
+    "highlight.js": "^8.5.0",
+    "hyperscript": "^1.4.6",
+    "insert-css": "^0.2.0",
+    "markdown-it": "^4.1.0",
+    "micro-css": "^0.5.0",
+    "observ": "^0.2.0",
+    "through2": "^0.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "beefy proof-of-concept.js -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmckegg/web-audio-school.git"
+  },
+  "author": "Matt McKegg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmckegg/web-audio-school/issues"
+  },
+  "homepage": "https://github.com/mmckegg/web-audio-school"
+}

@@ -1,0 +1,26 @@
+Player {
+
+  display: flex
+  height: 80px
+
+  button.run {
+    background: svg(play) no-repeat center #555
+    border: 1px solid #444
+    width: 60px
+  }
+
+  canvas {
+    flex: 1
+    display: block
+  }
+
+  @svg play {
+    width: 16px
+    height: 16px
+    content: "<path d='M0,0 L16,8 L0,16 Z' />"
+
+    path {
+      fill: #8F8
+    }
+  } 
+}
