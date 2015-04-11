@@ -3,16 +3,16 @@ Web Audio School
 
 **WORK IN PROGRESS:** Nothing is implemented yet!
 
+An intro to the **Web Audio API** by a series of self-guided workshops.
+
+We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
+
 ## TODO
 
 - Lesson selector
 - FFT verifier (check audio output against answer audio output)
 - All of the lessons!
 - Offline progress storage
-
-An intro to the **Web Audio API** by a series of self-guided workshops.
-
-We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
 
 ## Part I: Subtractive Synthesis
 
