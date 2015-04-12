@@ -1,4 +1,49 @@
 Lesson {
   font-size: 90%
-  margin: 15px
+  margin: 5px
+  padding: 15px
+  flex: 1
+  overflow-y: auto
+  border: 3px solid #111
+  border-radius: 3px
+  box-shadow: 0 0 4px black
+
+  background: #222
+  color: #FFF
+
+  div {
+
+    (a) {
+      color: #8EC1FC
+      text-decoration: none
+
+      code {
+        color: #8EC1FC
+      }
+
+      :hover {
+        text-decoration: underline
+      }
+    }
+
+    blockquote {
+      background: #3E5241;
+      padding: 1px 10px;
+      margin: 0;
+      border: 3px solid #437743;
+      color: #BBF2BB;
+      font-size: 110%;
+
+      (strong){
+        color: #EFE
+      }
+    }
+  }
+
+  h1 {
+    margin: -15px
+    margin-bottom: 15px
+    padding: 15px
+    background: #111
+  }
 }

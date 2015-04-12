@@ -35,11 +35,11 @@ pre {
 }
 
 p {
-  code {
+  (code) {
     padding: 0 3px
-    background: #4F4F4F
+    background: #333
     color: #EEE
-    border: 1px solid #555
+    border: 1px solid #444
     font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
   }
 }

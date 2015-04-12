@@ -10,8 +10,7 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 ## TODO
 
 - Lesson selector
-- FFT verifier (check audio output against answer audio output)
-- All of the lessons!
+- All of the lessons
 - Offline progress storage
 
 ## Part I: Subtractive Synthesis

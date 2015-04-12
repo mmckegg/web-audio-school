@@ -2,6 +2,7 @@ RawEditor {
   flex: 1
   position: relative;
   background-color: #333
+  margin: 5px
 
   div {
     background-color: transparent

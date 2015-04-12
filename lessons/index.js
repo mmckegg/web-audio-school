@@ -3,8 +3,6 @@ var path = require('path')
 
 module.exports = readDir(__dirname, true)
 
-console.log(module.exports)
-
 function readDir(dir, directoriesOnly){
   return fs.readdirSync(dir).reduce(function(result, file){
     var stat = fs.lstatSync(path.join(dir, file))

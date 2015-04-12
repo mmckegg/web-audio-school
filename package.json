@@ -11,6 +11,7 @@
     "hyperscript": "^1.4.6",
     "insert-css": "^0.2.0",
     "markdown-it": "^4.1.0",
+    "markdown-it-for-inline": "^0.1.0",
     "micro-css": "^0.5.0",
     "observ": "^0.2.0",
     "through2": "^0.6.5"
