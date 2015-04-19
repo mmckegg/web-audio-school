@@ -32,12 +32,18 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 
 ## Part III: Effects
 
-12. Echo / Delay
-13. Overdrive
-14. Tremolo
-15. Stereo Tremolo
-16. Dynamics Compression
-17. Simple Reverb
+12. Tremolo
+13. Stereo Tremolo
+14. Echo / Delay
+15. Dynamics Compression
+16. Overdrive (part 1)
+17. Overdrive (part 2)
+18. Ping Pong Delay
+19. Simple Reverb
+
+## Epilogue
+
+20. Drop the Bass
 
 ## Coverage
 
@@ -54,6 +60,8 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 - BiquadFilterNode
 - DelayNode
 - DynamicsCompressorNode
+- ChannelSplitterNode
+- ChannelMergerNode
 
 ## Not Yet Covered
 
@@ -62,3 +70,4 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 - OfflineAudioContext
 - AudioListener
 - PannerNode
+- AnalyserNode
