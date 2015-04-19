@@ -1,6 +1,8 @@
 # Introduction
 
-The [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) is pretty neat.
+The [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) provides a powerful and versatile system for controlling audio on the Web, allowing developers to choose audio sources, add effects to audio, create audio visualizations, apply spatial effects (such as panning)  and much more.
+
+We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
 
 Before we can do anything we need to create an [**AudioContext**](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext). This is a global object that is available in most modern browsers on _any_ webpage.
 
@@ -10,7 +12,7 @@ var audio = new AudioContext()
 
 To generate and process sounds using the Web Audio API, you create a series of Nodes that connect together to form a signal path.
 
-![](https://mdn.mozillademos.org/files/7893/web-audio-api-flowchart.png)
+![](/images/web-audio-api-flowchart.png)
 
 # Generate a simple audio pitch
 
@@ -44,13 +46,13 @@ oscillator.type = 'sine'
 
 There are two ways of setting pitch. You can specify a frequency or you can set a detune offset in cents.
 
-The [`detune`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune) and [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/frequency) parameters are instances of [`AudioParam`](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) so cannot be set directly. You need to set them using `param.value`.
+The [`detune`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/detune) and [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/frequency) parameters are instances of [`AudioParam`](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) so cannot be set directly. You need to set them using [`param.value`](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam/value).
 
 We will look at AudioParam in more depth in later exercises.
 
 ```js
-oscillator.frequency.value = 440 // A note
-oscillator.detune.value = 100 // B note
+oscillator.frequency.value = 440 // middle A
+oscillator.detune.value = 100 // offset by 1 note
 ```
 
 The frequency defaults to `440` hz which is equivalent to **middle A**.
@@ -61,5 +63,5 @@ The frequency defaults to `440` hz which is equivalent to **middle A**.
 # Exercise
 
 > Pass this exercise by modifying the code on the right so that the sound is a **sawtooth** waveform and playing **middle C**, then press the **Play / Verify** button. 
->
-> You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
