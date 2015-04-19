@@ -1,8 +1,9 @@
 var insertCss = require('insert-css')
 var Observ = require('observ')
+var watch = require('observ/watch')
 var EditorWidget = require('./lib/editor')
 var Spectrograph = require('./lib/spectrograph')
-var AudioMatch = require('./lib/audio-match')
+var Verifier = require('./lib/verifier')
 var h = require('micro-css/h')(require('hyperscript'))
 
 // markdown
@@ -38,7 +39,6 @@ var lastOutput = null
 var lastAnswerOutput = null
 
 var audio = new AudioContext()
-var audioMatch = AudioMatch(audio)
 
 var lesson = {
   name: current[1],
@@ -49,28 +49,31 @@ var lesson = {
 }
 
 var file = Observ(lesson.start)
-var answer = Observ(lesson.answer)
 var editor = EditorWidget(file)
-var verifyTimer = null
-var verifyInterval = null
+var verifier = Verifier(audio)
+verifier.setAnswer(lesson.answer)
+watch(file, verifier.set)
 
 var canvas = h('canvas')
 var answerCanvas = h('canvas')
 
-var spectrograph = Spectrograph(audio, { canvas: canvas, beforeRender: checkMatch })
-var answerSpectrograph = Spectrograph(audio, { canvas: answerCanvas })
+var spectrograph = Spectrograph(verifier.getAnalyser(), { 
+  canvas: canvas, 
+  beforeRender: checkMatch,
+  speed: 0,
+  minL: 10,
+  minS: 0
+})
 
-spectrograph.speed = 0
-answerSpectrograph.speed = 0
-answerSpectrograph.minL = 10
-spectrograph.minL = 10
-
-answerSpectrograph.minS = 0
-spectrograph.minS = 0
-
+var answerSpectrograph = Spectrograph(verifier.getAnswerAnalyser(), { 
+  canvas: answerCanvas,
+  speed: 0,
+  minL: 10,
+  minS: 0
+})
 
 function checkMatch(){
-  if (audioMatch.checkMatch()){
+  if (verifier.checkMatch()){
     spectrograph.maxH = 100
     spectrograph.minH = 200
     spectrograph.maxL = 100
@@ -80,7 +83,6 @@ function checkMatch(){
     spectrograph.minH = -80
     spectrograph.maxL = 50
     spectrograph.maxS = 0
-
   }
 }
 
@@ -88,17 +90,21 @@ var player = h('Player', [
   h('header', [ 'Your Audio' ]),
   h('div', [
     canvas,
-    h('button.run', { onclick: play }, ['Play / Verify'])
+    h('button.run', { onclick: verify }, ['Play / Verify'])
   ])
+])
+
+var lessonElement = h('Lesson', [
+  h('header', [
+    h('h1', lesson.name),
+  ]),
+  markdownElement(lesson.lesson)
 ])
 
 
 var main = h('Main', [
   h('div.side', [
-    h('Lesson', [
-      h('h1', lesson.name),
-      markdownElement(lesson.lesson)
-    ]),
+    lessonElement,
     h('Player', [
       h('header', [ 'Target Audio' ]),
       h('div', [
@@ -121,115 +127,45 @@ function markdownElement(md){
   return el
 }
 
-function play(){
-
-  stop()
-
-  spectrograph.speed = 4
-  answerSpectrograph.speed = 4
-
-  answerSpectrograph.maxH = 250
-  answerSpectrograph.minH = 200
-  answerSpectrograph.maxL = 50
-  answerSpectrograph.maxS = 10
-
-  var answerOutput = audio.createGain()
-  var output = audio.createGain()
-  output.connect(audio.destination)
-  output.gain.value = 0.5
-  output.connect(spectrograph.input)
-  output.connect(audioMatch.inputA)
-
-  answerOutput.gain.value = 0.5
-  answerOutput.connect(answerSpectrograph.input)
-  answerOutput.connect(audioMatch.inputB)
-
-  lastOutput = output
-  lastAnswerOutput = answerOutput
-
-  var run = new Function('AudioContext', file())
-  var runAnswer = new Function('AudioContext', answer())
-
-  runAnswer(wrapAudioContext(answerOutput))
-
-  try {
-    run(wrapAudioContext(output))
-  } catch (err) {
-    console.log('ERROR:', err)
-  }
-
-  verify(lesson.verifyTime)
-}
-
 function playAnswer(){
-  stop()
+  
+  verifier.playAnswer(function() {
+    answerSpectrograph.speed = 0
+  })
 
-  answerSpectrograph.speed = 4
-
+  answerSpectrograph.speed = 3
   answerSpectrograph.maxH = 200
   answerSpectrograph.minH = 150
   answerSpectrograph.maxS = 100
   answerSpectrograph.maxL = 100
-
-  var answerOutput = audio.createGain()
-  answerOutput.gain.value = 0.5
-  answerOutput.connect(answerSpectrograph.input)
-  answerOutput.connect(audioMatch.inputB)
-  answerOutput.connect(audio.destination)
-
-  var runAnswer = new Function('AudioContext', answer())
-  runAnswer(wrapAudioContext(answerOutput))
-
-  verify(lesson.verifyTime)
 }
 
+function verify() {
+  player.classList.remove('-error')
 
-function stop(){
-  if (lastOutput){
-    lastOutput.disconnect()
-    lastAnswerOutput.disconnect()
-    lastOutput = null
-    lastAnswerOutput = null
-  }
-
-  clearInterval(verifyInterval)
-  clearTimeout(verifyTimer)
-}
-
-function wrapAudioContext(output){
-  return function AudioContext() {
-    return {
-      createOscillator: audio.createOscillator.bind(audio),
-      createGain: audio.createGain.bind(audio),
-      get currentTime(){
-        return audio.currentTime
-      },
-      destination: output
-    }
-  }
-}
-
-function verify(time){
-  
-  var pass = true
-
-  verifyInterval = setInterval(function(){
-    if (!audioMatch.checkMatch()){
-      pass = false
-    }
-  }, 50)
-
-  verifyTimer = setTimeout(function(){
-    clearInterval(verifyInterval)
-    if (pass){
+  verifier.verify(function(err, pass) {
+    if (err) {
+      player.classList.add('-error')
+      throw err
+    } else if (pass){
       player.classList.add('-verified')
+      lessonElement.classList.add('-verified')
     } else {
       player.classList.remove('-verified')
     }
 
     spectrograph.speed = 0
     answerSpectrograph.speed = 0
-  }, (time || 2) * 1000)
+  })
+
+  spectrograph.speed = 3
+  answerSpectrograph.speed = 3
+  answerSpectrograph.maxH = 250
+  answerSpectrograph.minH = 200
+  answerSpectrograph.maxL = 50
+  answerSpectrograph.maxS = 10
 }
 
-window.play = play
+window.save = function() {
+  verify()
+}
