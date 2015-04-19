@@ -48,6 +48,7 @@ Player {
       padding: 10px
       padding-left: 30px
       color: #AAA
+      cursor: pointer
 
       :focus {
         outline-style: none;
@@ -55,6 +56,11 @@ Player {
         z-index: 100;
       }
 
+
+      :hover {
+        background-color: #555
+        color: white
+      }
 
     }
 

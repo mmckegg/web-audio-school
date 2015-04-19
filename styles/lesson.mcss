@@ -1,9 +1,10 @@
 Lesson {
+  position: relative
+  display: flex
+  flex-direction: column
   font-size: 90%
   margin: 5px
-  padding: 15px
   flex: 1
-  overflow-y: auto
   border: 3px solid #111
   border-radius: 3px
   box-shadow: 0 0 4px black
@@ -11,7 +12,39 @@ Lesson {
   background: #222
   color: #FFF
 
+  -verified {
+    header {
+      nav {
+        button {
+          -next {
+
+            -webkit-animation-name: greenPulse;
+            -webkit-animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+
+            color: #8FF58F;
+            background-color: #284226;
+            box-shadow: 0 0 15px rgba(103, 255, 103, 0.56);
+
+            :hover {
+              background-color: #31692C;
+              color: white
+            }
+          }
+        }
+      }
+    }
+  }
+
   div {
+    background: #222
+    flex: 1
+    padding: 15px
+    overflow-y: auto
+
+    (img) {
+      max-width: 100%
+    }
 
     (a) {
       color: #8EC1FC
@@ -40,10 +73,110 @@ Lesson {
     }
   }
 
-  h1 {
-    margin: -15px
-    margin-bottom: 15px
+  header {
+    display: flex
     padding: 15px
     background: #111
+
+    nav {
+      margin: -5px 0
+
+      button {
+        border-width: 2px
+        box-shadow: inset 2px 2px 5px rgba(255,255,255, 0.3)
+        border-radius: 4px
+        padding: 10px
+        color: #AAA
+        background: #222
+        cursor: pointer
+
+        :focus {
+          outline-style: none;
+          color: white;
+          z-index: 100;
+        }
+
+        :hover {
+          background-color: #555
+          color: white
+        }
+
+        -index {
+          background: svg(index) no-repeat 10px center #222
+          padding-left: 25px
+          margin-right: 4px
+        }
+
+        -next {
+          border-top-left-radius: 0
+          border-bottom-left-radius: 0
+
+          background: svg(next) no-repeat right 10px center #222
+          padding-right: 25px
+        }
+
+        -prev {
+          border-top-right-radius: 0
+          border-bottom-right-radius: 0
+
+          background: svg(prev) no-repeat 10px center #222
+          padding-left: 25px
+        }
+      }
+    }
+
+    h1 {
+      flex: 1
+    }
+
+    :after {
+      transform: translate3d(0,0,0)
+      position: absolute
+      display: block
+      content: ' '
+      height: 10px
+      width: 100%
+      bottom: 0
+      left: 0
+      background: linear-gradient(rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.8))
+    }
   }
+
+  @svg next {
+    width: 8px
+    height: 12px
+    content: "<path d='M0,0 L8,6 L0,12 Z' />"
+
+    path {
+      fill: rgba(255,255,255,0.7)
+    }
+  }
+
+  @svg prev {
+    width: 8px
+    height: 12px
+    content: "<path d='M8,0 L0,6 L8,12 Z' />"
+
+    path {
+      fill: rgba(255,255,255,0.7)
+    }
+  }
+
+  @svg index {
+    width: 10px
+    height: 12px
+    content: "<rect x='0' y='1' width='10' height='2' /><rect x='0' y='5' width='10' height='2' /><rect x='0' y='9' width='10' height='2' />"
+
+    rect {
+      width: 8px
+      height: 2px
+      fill: rgba(255,255,255,0.7)
+    }
+  }
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; box-shadow: 0 0 9px #333; }
 }

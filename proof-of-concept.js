@@ -97,6 +97,11 @@ var player = h('Player', [
 var lessonElement = h('Lesson', [
   h('header', [
     h('h1', lesson.name),
+    h('nav', [
+      h('button -index', 'Index'),
+      h('button -prev', 'Prev'),
+      h('button -next', 'Next')
+    ]),
   ]),
   markdownElement(lesson.lesson)
 ])
