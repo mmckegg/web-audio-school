@@ -1,3 +1,4 @@
+//# duration=2
 
 var audioContext = new AudioContext()
 
