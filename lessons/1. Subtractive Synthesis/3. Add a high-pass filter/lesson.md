@@ -54,3 +54,5 @@ filter.Q.value = 1
 # Exercise
 
 > Modify the code on the right so that the audio is **filtered** to **pass** all frequencies lower than `10000` Hz . 
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
