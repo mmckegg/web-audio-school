@@ -14,12 +14,13 @@
     "markdown-it-for-inline": "^0.1.0",
     "micro-css": "^0.5.0",
     "observ": "^0.2.0",
+    "observ-struct": "^6.0.0",
     "through2": "^0.6.5"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "beefy proof-of-concept.js -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]"
+    "start": "beefy browser-entry.js -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]"
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,6 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 
 - Lesson selector
 - All of the lessons
-- Offline progress storage
 
 ## Part I: Subtractive Synthesis
 

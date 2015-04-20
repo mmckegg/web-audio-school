@@ -9,8 +9,7 @@ Player {
   overflow: hidden
 
   -verified {
-    border: 1px solid #3B5A1E;
-    border-radius: 3px;
+    border-color: #3B5A1E;
     box-shadow: 0 0 4px #00FF20;
 
     header {
@@ -21,6 +20,14 @@ Player {
         content: ': verified!'
         color: white
         font-weight: normal
+      }
+    }
+  }
+
+  -modified {
+    div {
+      button.reset {
+        display: block
       }
     }
   }
@@ -39,14 +46,15 @@ Player {
     height: 150px
     position: relative
 
-    button.run {
+    button {
+      display: block
+      width: auto
       opacity: 0.9
+      background-color: #222
       box-shadow: inset 2px 2px 5px #444
-      background: svg(play) no-repeat 10px center #222
       border-radius: 4px
       margin: 10px
       padding: 10px
-      padding-left: 30px
       color: #AAA
       cursor: pointer
 
@@ -64,6 +72,17 @@ Player {
 
     }
 
+    button.reset {
+      background: svg(reset) no-repeat 10px center #222
+      padding-left: 30px
+      display: none
+    }
+
+    button.run {
+      background: svg(play) no-repeat 10px center #222
+      padding-left: 30px
+    }
+
     canvas {
       position: absolute
       width: 100%
@@ -74,7 +93,17 @@ Player {
     }
   }
 
+  @svg reset {
+    width: 12px
+    height: 12px
+    content: "<path d='M0,0 L12,12 M0,12 L12,0' />"
 
+    path {
+      fill: none
+      stroke-width: 2px
+      stroke: #F88
+    }
+  } 
 
   @svg play {
     width: 16px
