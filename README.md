@@ -7,6 +7,10 @@ An intro to the **Web Audio API** by a series of self-guided workshops.
 
 We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
 
+## Try it out here:
+
+http://mmckegg.github.io/web-audio-school/
+
 ## TODO
 
 - All of the lessons
