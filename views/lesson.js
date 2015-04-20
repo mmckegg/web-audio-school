@@ -4,6 +4,7 @@ var Spectrograph = require('../lib/spectrograph')
 var Verifier = require('../lib/verifier')
 var h = require('micro-css/h')(require('hyperscript'))
 var markdown = require('../lib/markdown')
+var send = require('../lib/send')
 
 module.exports = LessonView
 
@@ -63,7 +64,7 @@ function LessonView(state, lesson) {
     h('header', [
       h('h1', lesson.title()),
       h('nav', [
-        h('button -index', 'Index'),
+        h('button -index', { onclick: send(state.view.set, 'index') }, 'Index'),
         h('button -prev', { onclick: state.prevLesson }, 'Prev'),
         h('button -next', { onclick: state.nextLesson }, 'Next')
       ]),

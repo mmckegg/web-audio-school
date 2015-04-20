@@ -9,7 +9,6 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 
 ## TODO
 
-- Lesson selector
 - All of the lessons
 
 ## Part I: Subtractive Synthesis

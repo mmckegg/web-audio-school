@@ -1,0 +1,61 @@
+Index {
+  margin: 10px auto
+  width: 500px
+  display: flex
+  flex-direction: column
+  background: #191919
+  border: 1px solid #111
+  border-radius: 3px
+  box-shadow: 0 0 4px black
+  overflow: hidden
+
+  div {
+    background: #222
+    flex: 1
+    padding: 15px 20px
+    overflow-y: auto
+
+    ul {
+      margin: 0
+      padding: 0
+      list-style: none
+      li {
+        ul {
+          padding: 0
+          list-style: none
+
+          li {
+            padding: 4px
+            cursor: pointer
+
+            -verified {
+              background: svg(tick) right 10px center #232 no-repeat;
+              color: #BAD5B8;
+            }
+
+            :hover {
+              background-color: #555
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    display: flex
+    padding: 15px
+    background: #111
+  }
+
+  @svg tick {
+    width: 16px
+    height: 16px
+    content: "<path d='M16,0 L6,16 L0,10 L6,12 Z' />"
+
+    path {
+      fill: #8F8
+    }
+  }
+}

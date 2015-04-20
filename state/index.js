@@ -29,7 +29,7 @@ state.audioContext = new AudioContext()
 state.lessons.set(Object.keys(lessons).map(function(groupName) {
   return {
     name: groupName,
-    lessons: Object.keys(lessons).map(function(name) {
+    lessons: Object.keys(lessons[groupName]).map(function(name) {
       return {
         title: name,
         path: groupName + '/' + name
@@ -37,6 +37,11 @@ state.lessons.set(Object.keys(lessons).map(function(groupName) {
     })
   }
 }))
+
+state.viewLesson = function(path) {
+  state.selectedLesson.set(path)
+  state.view.set('lesson')
+}
 
 state.getLesson = function(path) {
   var parts = path.split('/')
