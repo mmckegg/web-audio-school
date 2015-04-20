@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "An intro to the Web Audio API by a series of self-guided workshops.",
   "main": "index.js",
+  "bin": {
+    "web-audio-school": "run.js"
+  },
   "dependencies": {
     "beefy": "^2.1.4",
     "brace": "^0.5.1",
@@ -27,6 +30,7 @@
     "build-static": "npm run clean-static && mkdir build && cp -r images build/images && cp index.html build/index.html && browserify browser-entry -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ] -o build/bundle.js",
     "deploy": "npm run build-static && buildbranch gh-pages build"
   },
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/mmckegg/web-audio-school.git"

@@ -1,7 +1,7 @@
 Web Audio School
 ===
 
-**WORK IN PROGRESS:** Nothing is implemented yet!
+**WORK IN PROGRESS:** Only Part I is implemented so far!
 
 An intro to the **Web Audio API** by a series of self-guided workshops.
 
@@ -15,7 +15,25 @@ http://mmckegg.github.io/web-audio-school/
 
 - Part II and III
 
-## Part I: Subtractive Synthesis
+## Install via [npm](https://www.npmjs.com/package/web-audio-school)
+
+Global install:
+
+```bash
+$ npm install web-audio-school -g
+```
+
+Start the server:
+
+```
+$ web-audio-school
+```
+
+Now navigate to http://localhost:9966
+
+## Lesson Overview
+
+### Part I: Subtractive Synthesis
 
 1. Play a pitched sawtooth wave
 2. Play a short sequence of notes
@@ -24,7 +42,7 @@ http://mmckegg.github.io/web-audio-school/
 5. Add an envelope
 6. Vibrato
 
-## Part II: Working With Samples
+### Part II: Working With Samples
 
 7. Decode and play an audio file
 8. Set in and out points
@@ -32,7 +50,7 @@ http://mmckegg.github.io/web-audio-school/
 10. Set sample pitch
 11. Play a sequence of pitched samples
 
-## Part III: Effects
+### Part III: Effects
 
 12. Tremolo
 13. Stereo Tremolo
@@ -43,7 +61,7 @@ http://mmckegg.github.io/web-audio-school/
 18. Ping Pong Delay
 19. Simple Reverb
 
-## Epilogue
+### Epilogue
 
 20. Drop the Bass
 
