@@ -22,7 +22,7 @@ Lesson {
             -webkit-animation-duration: 2s;
             -webkit-animation-iteration-count: infinite;
 
-            color: #8FF58F;
+            color: white;
             background-color: #284226;
             box-shadow: 0 0 15px rgba(103, 255, 103, 0.56);
 
@@ -41,9 +41,14 @@ Lesson {
     flex: 1
     padding: 15px
     overflow-y: auto
+    color: #EEE
 
     (img) {
       max-width: 100%
+    }
+
+    (strong) {
+      color: #FFF
     }
 
     (a) {
