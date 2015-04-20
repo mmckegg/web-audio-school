@@ -64,10 +64,20 @@ Index {
   }
 
   header {
-    font-size: 190%
     display: flex
     padding: 15px
     background: #111
+
+    span.main {
+      font-size: 190%
+      flex: 1
+      color: white
+    }
+
+    span {
+      color: #AAA
+    }
+
   }
 
   @svg tick {

@@ -5,7 +5,7 @@ module.exports = IndexView
 
 function IndexView(state) {
   return h('Index', [
-    h('header', [ 'Web Audio School']),
+    h('header', [ h('span.main', 'Web Audio School'), h('span', ['v', state.version])]),
     h('div', [
       h('ul', state.lessons().map(function(group) {
         return h('li', [

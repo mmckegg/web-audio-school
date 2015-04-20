@@ -5,6 +5,7 @@ var ObservSet = require('../lib/observ-set')
 var lessons = require('../lessons')
 var Lesson = require('./lesson')
 var persist = require('../lib/persist')
+var package = require('../package.json')
 
 var lessonOrder = Object.keys(lessons).reduce(function(result, groupName) {
   Object.keys(lessons[groupName]).forEach(function(name) {
@@ -17,7 +18,8 @@ var state = ObservStruct({
   view: Observ('index'),
   selectedLesson: Observ(lessonOrder[0]),
   verifiedLessons: ObservSet([]),
-  lessons: Observ([])
+  lessons: Observ([]),
+  version: package.version
 })
 
 persist('selectedLesson', state.selectedLesson)
