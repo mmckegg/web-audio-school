@@ -1,15 +1,15 @@
 Web Audio School
 ===
 
-**WORK IN PROGRESS:** Only Part I is implemented so far!
-
 An intro to the **Web Audio API** by a series of self-guided workshops.
 
 We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
 
+**WORK IN PROGRESS:** Only Part I is implemented so far!
+
 ## Try it out here:
 
-http://mmckegg.github.io/web-audio-school/
+[mmckegg.github.io/web-audio-school](http://mmckegg.github.io/web-audio-school/)
 
 ## TODO
 
@@ -29,7 +29,7 @@ Start the server:
 $ web-audio-school
 ```
 
-Now navigate to http://localhost:9966
+Now navigate to [localhost:9966](http://localhost:9966).
 
 ## Lesson Overview
 
