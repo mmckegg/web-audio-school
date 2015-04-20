@@ -17,10 +17,15 @@
     "observ-struct": "^6.0.0",
     "through2": "^0.6.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "buildbranch": "0.0.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "beefy browser-entry.js -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]"
+    "start": "beefy browser-entry.js -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]",
+    "clean-static": "rm -rf build",
+    "build-static": "npm run clean-static && mkdir build && cp index.html build/index.html && browserify browser-entry -o build/bundle.js",
+    "deploy": "npm run build-static && buildbranch gh-pages build"
   },
   "repository": {
     "type": "git",
