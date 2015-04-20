@@ -51,19 +51,6 @@ Lesson {
       color: #FFF
     }
 
-    (a) {
-      color: #8EC1FC
-      text-decoration: none
-
-      code {
-        color: #8EC1FC
-      }
-
-      :hover {
-        text-decoration: underline
-      }
-    }
-
     blockquote {
       background: #3E5241;
       padding: 1px 10px;

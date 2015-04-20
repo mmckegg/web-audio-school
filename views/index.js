@@ -29,6 +29,15 @@ function IndexView(state) {
           }))
         ])
       }))
+    ]),
+    h('div.info', [
+      h('p', [ 'The verifier currently only works in Chrome at the moment :(']),
+      h('p', [ 'More lessons coming soon!' ]),
+      h('p', [ 
+        h('a', { 
+          href: 'https://github.com/mmckegg/web-audio-school' 
+        }, ['github.com/mmckegg/web-audio-school' ]) 
+      ])
     ])
   ])
 }

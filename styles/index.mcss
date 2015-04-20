@@ -9,6 +9,13 @@ Index {
   box-shadow: 0 0 4px black
   overflow: hidden
 
+  div.info {
+    border-top: 2px solid #333
+    background-color: #2A2929
+    font-size: 90%
+    color: #CCC
+  }
+
   div {
     background: #222
     flex: 1
