@@ -19,14 +19,26 @@ Index {
       margin: 0
       padding: 0
       list-style: none
+
       li {
+
+        h1 {
+          font-size: 100%
+          font-weight: bold
+          margin: 10px 0
+        }
+
         ul {
           padding: 0
           list-style: none
 
           li {
-            padding: 4px
+            padding: 6px
             cursor: pointer
+
+            -selected {
+              background: svg(point) right 10px center no-repeat;
+            }
 
             -verified {
               background: svg(tick) right 10px center #232 no-repeat;
@@ -44,6 +56,7 @@ Index {
   }
 
   header {
+    font-size: 190%
     display: flex
     padding: 15px
     background: #111
@@ -56,6 +69,16 @@ Index {
 
     path {
       fill: #8F8
+    }
+  }
+
+  @svg point {
+    width: 16px
+    height: 12px
+    content: "<path d='M0,6 L12,0 L6,6 L12,12 Z' />"
+
+    path {
+      fill: #F88
     }
   }
 }
