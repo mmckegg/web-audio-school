@@ -35,9 +35,10 @@ Index {
           li {
             padding: 6px
             cursor: pointer
+            border-radius: 3px
 
             -selected {
-              background: svg(point) right 10px center no-repeat;
+              background: svg(point) right 10px center #342F2F no-repeat;
             }
 
             -verified {
