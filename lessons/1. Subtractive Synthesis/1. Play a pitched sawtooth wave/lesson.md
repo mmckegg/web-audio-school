@@ -7,7 +7,7 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 Before we can do anything we need to create an [**AudioContext**](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext). This is a global object that is available in most modern browsers on _any_ webpage.
 
 ```js
-var audio = new AudioContext()
+var audioContext = new AudioContext()
 ```
 
 To generate and process sounds using the Web Audio API, you create a series of Nodes that connect together to form a signal path.
@@ -21,15 +21,15 @@ The [**OscillatorNode**](https://developer.mozilla.org/en-US/docs/Web/API/Oscill
 Use it to synthesize musical sounds, generate sound effects or just for testing things out.
 
 ```js
-var oscillator = audio.createOscillator()
-oscillator.start(audio.currentTime)
-oscillator.stop(audio.currentTime + 2) // stop after 2 seconds
+var oscillator = audioContext.createOscillator()
+oscillator.start(audioContext.currentTime)
+oscillator.stop(audioContext.currentTime + 2) // stop after 2 seconds
 ```
 
 Connect it to the speakers:
 
 ```js
-oscillator.connect(audio.destination)
+oscillator.connect(audioContext.destination)
 ```
 
 The code editor to the right has the above code in it already. You can listen to the way it sounds by clicking the 'Play / Verify' button.

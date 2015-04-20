@@ -1,7 +1,7 @@
-var audio = new AudioContext()
+var audioContext = new AudioContext()
 
-var oscillator = audio.createOscillator()
-oscillator.connect(audio.destination)
+var oscillator = audioContext.createOscillator()
+oscillator.connect(audioContext.destination)
 
-oscillator.start(audio.currentTime)
-oscillator.stop(audio.currentTime + 2)
+oscillator.start(audioContext.currentTime)
+oscillator.stop(audioContext.currentTime + 2)
