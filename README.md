@@ -13,7 +13,7 @@ http://mmckegg.github.io/web-audio-school/
 
 ## TODO
 
-- All of the lessons
+- Part II and III
 
 ## Part I: Subtractive Synthesis
 
@@ -22,7 +22,7 @@ http://mmckegg.github.io/web-audio-school/
 3. Add a high-pass filter
 4. Modulate filter cutoff
 5. Add an envelope
-6. Modulate pitch with an LFO
+6. Vibrato
 
 ## Part II: Working With Samples
 
