@@ -12,7 +12,7 @@ var audioContext = new AudioContext()
 
 To generate and process sounds using the Web Audio API, you create a series of Nodes that connect together to form a signal path.
 
-![](/images/web-audio-api-flowchart.png)
+![](images/web-audio-api-flowchart.png)
 
 # Generate a simple audio pitch
 
