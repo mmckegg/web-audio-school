@@ -10,8 +10,7 @@ function play(delay, pitch, duration) {
   var filter = audioContext.createBiquadFilter()
   filter.connect(audioContext.destination)
   filter.type = 'highpass'
-  
-  filter.frequency.setValueAtTime(10000, time)
+  filter.frequency.value = 10000
 
   var oscillator = audioContext.createOscillator()
   oscillator.connect(filter)
