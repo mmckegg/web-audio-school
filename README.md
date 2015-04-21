@@ -7,6 +7,8 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 
 **WORK IN PROGRESS:** Only Part I is implemented so far!
 
+> This workshop is being built for [CampJS V](http://v.campjs.com/)!
+
 ## Try it out here:
 
 [mmckegg.github.io/web-audio-school](http://mmckegg.github.io/web-audio-school/)
