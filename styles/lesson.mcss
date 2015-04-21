@@ -8,6 +8,7 @@ Lesson {
   border: 3px solid #111
   border-radius: 3px
   box-shadow: 0 0 4px black
+  min-height: 100px
 
   background: #222
   color: #FFF
