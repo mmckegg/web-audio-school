@@ -43,7 +43,7 @@ Player {
 
   div {
     flex: 1
-    height: 150px
+    min-height: 150px
     position: relative
 
     button {

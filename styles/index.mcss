@@ -1,8 +1,6 @@
 Index {
   margin: 10px auto
   width: 500px
-  display: flex
-  flex-direction: column
   background: #191919
   border: 1px solid #111
   border-radius: 3px
@@ -18,7 +16,6 @@ Index {
 
   div {
     background: #222
-    flex: 1
     padding: 15px 20px
     overflow-y: auto
 
