@@ -24,7 +24,7 @@ Lesson {
             -webkit-animation-iteration-count: infinite;
 
             color: white;
-            background-color: #284226;
+            background-color: #376C33;
             box-shadow: 0 0 15px rgba(103, 255, 103, 0.56);
 
             :hover {
@@ -169,7 +169,7 @@ Lesson {
 }
 
 @-webkit-keyframes greenPulse {
-  from { background-color: #749a02; box-shadow: 0 0 9px #333; }
-  50% { background-color: #91bd09; box-shadow: 0 0 18px #91bd09; }
-  to { background-color: #749a02; box-shadow: 0 0 9px #333; }
+  from { background-color: #376C33; box-shadow: 0 0 9px #333; }
+  50% { background-color: #63C25C; box-shadow: 0 0 18px #63C25C; }
+  to { background-color: #376C33; box-shadow: 0 0 9px #333; }
 }
