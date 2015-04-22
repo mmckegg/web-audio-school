@@ -19,6 +19,7 @@ function LessonView(state, lesson) {
 
   var canvas = h('canvas')
   var answerCanvas = h('canvas')
+  var stopOnNoSignal = false
 
   var spectrograph = Spectrograph(verifier.getAnalyser(), { 
     canvas: canvas, 
@@ -34,7 +35,19 @@ function LessonView(state, lesson) {
   })
 
   function checkMatch(){
-    if (verifier.checkMatch()){
+
+    
+
+    if (stopOnNoSignal) {
+      spectrograph.maxHsl = [0, 100, 50]
+      spectrograph.minHsl = [0, 40, 10]
+
+      if (!verifier.checkSignal()) {
+        stopOnNoSignal = false
+        spectrograph.speed = 0
+      }
+
+    } else if (verifier.checkMatch()){
       spectrograph.maxHsl = [100, 100, 100]
       spectrograph.minHsl = [200, 0, 10]
     } else {
@@ -123,6 +136,10 @@ function LessonView(state, lesson) {
     player.classList.remove('-error')
 
     verifier.verify(function(err, pass) {
+
+      spectrograph.speed = 0
+      answerSpectrograph.speed = 0
+
       if (err) {
         player.classList.add('-error')
         throw err
@@ -130,12 +147,17 @@ function LessonView(state, lesson) {
         state.verifiedLessons.add(lesson.path())
       } else {
         state.verifiedLessons.remove(lesson.path())
+
+        if (verifier.checkSignal()) {
+          spectrograph.speed = 3
+          stopOnNoSignal = true
+        }
       }
 
-      spectrograph.speed = 0
-      answerSpectrograph.speed = 0
+
     })
 
+    stopOnNoSignal = false
     spectrograph.speed = 3
     answerSpectrograph.speed = 3
     answerSpectrograph.maxHsl = [250, 10, 50]
