@@ -15,6 +15,7 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 
 ## TODO
 
+- Handle user code errors and display in editor
 - Part II and III
 
 ## Install via [npm](https://www.npmjs.com/package/web-audio-school)
