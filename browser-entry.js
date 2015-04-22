@@ -12,9 +12,6 @@ var lastElement = null
 var lastView = null
 var lastLesson = null
 
-// state.selectedLesson.set('1. Subtractive Synthesis/1. Play a pitched sawtooth wave')
-// state.selectedLesson.set('1. Subtractive Synthesis/2. Play a short sequence of notes')
-
 watch(state, function refreshView() {
   if (state.view() === 'lesson') {
     if (lastLesson !== state.selectedLesson() || lastView !== 'lesson') {
