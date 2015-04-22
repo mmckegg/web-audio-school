@@ -32,6 +32,18 @@ Player {
     }
   }
 
+  -playing {
+    div {
+      button.run {
+        display: none
+      }
+
+      button.stop {
+        display: block
+      }
+    }
+  }
+
   header {
     font-size: 90%
     font-weight: bold
@@ -83,6 +95,12 @@ Player {
       padding-left: 30px
     }
 
+    button.stop {
+      display: none
+      background: svg(stop) no-repeat 10px center #222
+      padding-left: 30px
+    }
+
     canvas {
       position: absolute
       width: 100%
@@ -112,6 +130,16 @@ Player {
 
     path {
       fill: #8F8
+    }
+  } 
+
+  @svg stop {
+    width: 12px
+    height: 12px
+    content: "<path d='M0,0 L12,0 L12,12 L0,12 Z' />"
+
+    path {
+      fill: #BAA
     }
   } 
 }

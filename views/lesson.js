@@ -35,14 +35,12 @@ function LessonView(state, lesson) {
   })
 
   function checkMatch(){
-
-    
-
     if (stopOnNoSignal) {
       spectrograph.maxHsl = [0, 100, 50]
       spectrograph.minHsl = [0, 40, 10]
 
       if (!verifier.checkSignal()) {
+        player.classList.remove('-playing')
         stopOnNoSignal = false
         spectrograph.speed = 0
       }
@@ -63,6 +61,7 @@ function LessonView(state, lesson) {
     h('div', [
       canvas,
       h('button.run', { onclick: verify }, ['Play / Verify']),
+      h('button.stop', { onclick: verifier.stop }, 'Stop'),
       resetButton
     ])
   ])
@@ -97,22 +96,31 @@ function LessonView(state, lesson) {
     }
   })
 
-  return h('Main', [
+  var answerPlayer = h('Player', [
+    h('header', [ 'Target Audio' ]),
+    h('div', [
+      answerCanvas,
+      h('button.run', { onclick: playAnswer }, 'Play Answer'),
+      h('button.stop', { onclick: verifier.stop }, 'Stop')
+    ])
+  ])
+
+  var result = h('Main', [
     h('div.side', [
       lessonElement,
-      h('Player', [
-        h('header', [ 'Target Audio' ]),
-        h('div', [
-          answerCanvas,
-          h('button.run', { onclick: playAnswer }, 'Play Answer')
-        ])
-      ])
+      answerPlayer
     ]),
     h('div.editor', [
       editor.init(),
       player
     ])
   ])
+
+  result.destroy = function() {
+    verifier.stop()
+  }
+
+  return result
 
   // scoped
 
@@ -125,8 +133,10 @@ function LessonView(state, lesson) {
   function playAnswer(){
     verifier.playAnswer(function() {
       answerSpectrograph.speed = 0
+      answerPlayer.classList.remove('-playing')
     })
 
+    answerPlayer.classList.add('-playing')
     answerSpectrograph.speed = 3
     answerSpectrograph.maxHsl = [200, 100, 100]
     answerSpectrograph.minHsl = [150, 0, 10]
@@ -137,6 +147,7 @@ function LessonView(state, lesson) {
 
     verifier.verify(function(err, pass) {
 
+      player.classList.remove('-playing')
       spectrograph.speed = 0
       answerSpectrograph.speed = 0
 
@@ -151,12 +162,14 @@ function LessonView(state, lesson) {
         if (verifier.checkSignal()) {
           spectrograph.speed = 3
           stopOnNoSignal = true
+          player.classList.add('-playing')
         }
       }
 
 
     })
 
+    player.classList.add('-playing')
     stopOnNoSignal = false
     spectrograph.speed = 3
     answerSpectrograph.speed = 3
