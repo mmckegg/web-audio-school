@@ -9,9 +9,11 @@ getSample('zara1.ogg', function play(buffer) {
 })
   
 function getSample(url, cb) {
-  fetch(url).then(function(response) {
-    return response.arrayBuffer()
-  }).then(function(data) {
-    audioContext.decodeAudioData(data, cb)
-  })
+  var request = new XMLHttpRequest()
+  request.open('GET', url)
+  request.responseType = 'arraybuffer'
+  request.onload = function() {
+    audioContext.decodeAudioData(request.response, cb)
+  }
+  request.send()
 }

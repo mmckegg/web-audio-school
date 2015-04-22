@@ -12,17 +12,18 @@ getSample('vox.ogg', function(buffer) {
     player.buffer = buffer
     player.connect(audioContext.destination)
     
-    var multiplier = Math.pow(2, transpose / 12)
-    player.playbackRate.value = multiplier
+    player.playbackRate.value = Math.pow(2, transpose / 12)
 
-    player.start(startTime + delay, 0, buffer.length / multiplier)
+    player.start(startTime + delay, 0)
   }
 })
   
 function getSample(url, cb) {
-  fetch(url).then(function(response) {
-    return response.arrayBuffer()
-  }).then(function(data) {
-    audioContext.decodeAudioData(data, cb)
-  })
+  var request = new XMLHttpRequest()
+  request.open('GET', url)
+  request.responseType = 'arraybuffer'
+  request.onload = function() {
+    audioContext.decodeAudioData(request.response, cb)
+  }
+  request.send()
 }

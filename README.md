@@ -5,7 +5,7 @@ An intro to the **Web Audio API** by a series of self-guided workshops.
 
 We will primarily focus on using the Web Audio API for music, but the concepts here could be applied to game sound and other creative uses.
 
-**WORK IN PROGRESS:** Only Part I is implemented so far!
+**WORK IN PROGRESS:** Only Part I and II are implemented so far!
 
 > This workshop is being built for [CampJS V](http://v.campjs.com/)!
 
@@ -16,7 +16,7 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 ## TODO
 
 - Handle user code errors and display in editor
-- Part II and III
+- Part III
 
 ## Install via [npm](https://www.npmjs.com/package/web-audio-school)
 
