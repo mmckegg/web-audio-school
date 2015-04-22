@@ -43,6 +43,7 @@ Lesson {
     padding: 15px
     overflow-y: auto
     color: #EEE
+    line-height: 1.4
 
     (img) {
       max-width: 100%
