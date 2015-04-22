@@ -20,11 +20,9 @@ getSample('vox.ogg', function(buffer) {
 })
   
 function getSample(url, cb) {
-  fetch(url).then(getArrayBuffer).then(function(data) {
+  fetch(url).then(function(response) {
+    return response.arrayBuffer()
+  }).then(function(data) {
     audioContext.decodeAudioData(data, cb)
   })
-}
-
-function getArrayBuffer(response) {
-  return response.arrayBuffer()
 }
