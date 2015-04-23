@@ -34,6 +34,12 @@ $ web-audio-school
 
 Now navigate to [localhost:9966](http://localhost:9966).
 
+## Browser Support
+
+Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari.
+
+[Internet Explorer doesn't support the Web Audio API yet](https://status.modern.ie/webaudioapi).
+
 ## Lesson Overview
 
 ### Part I: Subtractive Synthesis
