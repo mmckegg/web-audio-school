@@ -27,9 +27,21 @@ watch(state, function refreshView() {
   } else if (state.view() !== lastView) {
     var element = IndexView(state)
     setView(element)
+    scrollSelectedIntoView()
   }
   lastView = state.view()
 })
+
+function scrollSelectedIntoView() {
+  var selected = document.querySelector('.-selected')
+  if (selected) {
+    if (selected.scrollIntoViewIfNeeded) {
+      selected.scrollIntoViewIfNeeded() 
+    } else if (selected.scrollIntoView) {
+      selected.scrollIntoView(false) 
+    }
+  }
+}
 
 function setView(element) {
   if (lastElement) {

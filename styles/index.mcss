@@ -1,4 +1,6 @@
 Index {
+  display: flex
+  flex-direction: column
   margin: 10px auto
   width: 500px
   background: #191919
@@ -6,15 +8,23 @@ Index {
   border-radius: 3px
   box-shadow: 0 0 4px black
   overflow: hidden
+  min-height: 95%
+  max-height: 100%
+  overflow: hidden
 
   div.info {
+    position: relative
+    box-shadow: 0 0 20px #222
+    padding: 10px 20px
     border-top: 2px solid #333
     background-color: #2A2929
     font-size: 90%
     color: #CCC
   }
 
-  div {
+  div.lessons {
+    flex: 1
+    min-height: 20px
     background: #222
     padding: 15px 20px
     overflow-y: auto
