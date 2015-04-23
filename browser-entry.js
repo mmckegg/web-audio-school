@@ -17,8 +17,12 @@ watch(state, function refreshView() {
     if (lastLesson !== state.selectedLesson() || lastView !== 'lesson') {
       lastLesson = state.selectedLesson()
       var lesson = state.getLesson(state.selectedLesson())
-      var element = LessonView(state, lesson)
-      setView(element)
+      if (lesson) {
+        var element = LessonView(state, lesson)
+        setView(element)
+      } else {
+        state.view.set('index')
+      }
     }
   } else if (state.view() !== lastView) {
     var element = IndexView(state)
