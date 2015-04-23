@@ -14,7 +14,7 @@ Index {
 
   div.info {
     position: relative
-    box-shadow: 0 0 20px #222
+    box-shadow:  0 -10px 40px #111
     padding: 10px 20px
     border-top: 2px solid #333
     background-color: #2A2929
@@ -33,6 +33,7 @@ Index {
       margin: 0
       padding: 0
       list-style: none
+      margin-bottom: 20px
 
       li {
 
