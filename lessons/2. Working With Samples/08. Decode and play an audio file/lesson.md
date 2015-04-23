@@ -1,3 +1,7 @@
+> Complete the `play` function so that the decoded sample `buffer` is played at `startTime`.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Loading Audio Samples
 
 Before we can play anything, we first need to fetch the file from the network. We can do this using good old fashioned [XmlHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Sending_and_Receiving_Binary_Data) or use the new [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API):
@@ -33,9 +37,3 @@ Now we just connect the node to destination and call `start` as usual! We don't 
 player.connect(audioContext.destination)
 player.start(audioContext.currentTime)
 ```
-
-# Exercise
-
-> Complete the `play` function so that the decoded sample `buffer` is played at `startTime`.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

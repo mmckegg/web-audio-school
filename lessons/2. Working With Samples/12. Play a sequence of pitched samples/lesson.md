@@ -1,3 +1,7 @@
+> Complete the `play` function so that **each sample** in the sequence is played at the correct **pitch**.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Chromatic Pitching of Audio Samples
 
 [`playbackRate`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/playbackRate) works well enough for simple speed changes, but if we want to set precise audio pitches, we'll have to do some math. 
@@ -25,9 +29,3 @@ This works going down as well. Here we transpose **down 14 semitones**:
 ```js
 player.playbackRate.value = Math.pow(2, -14 / 12) // 0.45...
 ```
-
-# Exercise
-
-> Complete the `play` function so that **each sample** in the sequence is played at the correct **pitch**.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

@@ -1,3 +1,7 @@
+> Add a global effect so that the audio output has an **echo** with a **delay time of `0.2` seconds** and a **feedback ratio of `0.6`**.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Delaying an Audio Signal
 
 Here is how you delay an audio signal by **`1` second** using a [DelayNode](https://developer.mozilla.org/en-US/docs/Web/API/DelayNode):
@@ -38,9 +42,3 @@ delay.connect(feedback)
 feedback.connect(delay)
 feedback.connect(output)
 ```
-
-# Exercise
-
-> Add a global effect so that the audio output has an **echo** with a **delay time of `0.2` seconds** and a **feedback ratio of `0.6`**.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

@@ -1,3 +1,7 @@
+> Change the sample **pitch** down `1` octave (halve the speed).
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Audio Playback Rate
 
 You can change the speed the audio plays back (and therefore it's pitch) using the [`playbackRate`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/playbackRate) [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam).
@@ -21,9 +25,3 @@ You may notice that the audio cuts out early when slowing it down. To fix it, ma
 ```js
 player.start(audioContext.currentTime, 0, buffer.duration)
 ```
-
-# Exercise
-
-> Change the sample **pitch** down `1` octave (halve the speed).
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

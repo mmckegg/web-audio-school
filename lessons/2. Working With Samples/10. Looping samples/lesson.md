@@ -1,3 +1,7 @@
+> Play the sample from the **beginning** for `4` seconds, then **loop** between `3` seconds and `4` seconds **three** times.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Setting Loop Points
 
 By default, all [buffer source nodes](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/buffer) play from their **in point** for the **duration** specified then **stop**. 
@@ -24,9 +28,3 @@ If we start the player at `0`, it will continue until it hits `loopEnd` for the 
 ```js
 player.start(audioContext.currentTime, offset, duration)
 ```
-
-# Exercise
-
-> Play the sample from the **beginning** for `4` seconds, then **loop** between `3` seconds and `4` seconds **three** times.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

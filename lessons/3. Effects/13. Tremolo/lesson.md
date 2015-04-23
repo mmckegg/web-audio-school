@@ -1,3 +1,7 @@
+> Add a global effect so that the audio output has a `'sine'` shaped tremolo at a rate of `3` Hz.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Create a Tremolo Effect
 
 The simple way of creating a tremolo effect is using a GainNode with it's `gain` AudioParam modulated by a low `frequency` OscillatorNode.
@@ -45,9 +49,3 @@ But for our purposes we just want to go from **`0` to `1`** instead of the defau
 ```js
 shaper.curve = new Float32Array([0, 1])
 ```
-
-# Exercise
-
-> Add a global effect so that the audio output has a `'sine'` shaped tremolo at a rate of `3` Hz.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.
