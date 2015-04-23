@@ -48,6 +48,6 @@ shaper.curve = new Float32Array([0, 1])
 
 # Exercise
 
-> Add a global effect so that the audio output has a `'triangle'` shaped tremolo at a rate of `3` Hz.
+> Add a global effect so that the audio output has a `'sine'` shaped tremolo at a rate of `3` Hz.
 
 You can listen to how the audio is supposed to sound by clicking **Play Answer**.
