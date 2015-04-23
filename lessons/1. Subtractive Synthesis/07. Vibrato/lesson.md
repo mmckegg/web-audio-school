@@ -1,3 +1,7 @@
+> Modify the code on the right so that **each note** has a `5` Hz vibrato of +/- `30` cents.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Modulating Audio Parameters with Nodes
 
 As well as setting the time events manually as in _previous_ lessons, you can use an [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) to [modulate the value](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode/connect(AudioParam)).
@@ -46,9 +50,3 @@ lfo.frequency.value = 2
 lfo.start(audioContext.currentTime)
 lfo.stop(audioContext.currentTime+2)
 ```
-
-# Exercise
-
-> Modify the code on the right so that **each note** has a `5` Hz vibrato of +/- `30` cents.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

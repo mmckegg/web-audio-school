@@ -1,3 +1,5 @@
+//# duration=2
+
 var audioContext = new AudioContext()
 
 var oscillator = audioContext.createOscillator()

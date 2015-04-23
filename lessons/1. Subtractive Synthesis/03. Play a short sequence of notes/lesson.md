@@ -1,3 +1,7 @@
+> Complete the `play()` function on the right so that the sequence is played correctly. 
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Scheduling Events
 
 Like we saw in the previous example, we need to specify the `start` and `stop` time of each generator node. This is specified relative to `audioContext.currentTime` which is time in seconds since the `AudioContext` was first created.
@@ -29,9 +33,3 @@ function play(delay, duration) {
   oscillator.stop(audioContext.currentTime + delay + duration)
 }
 ```
-
-# Exercise
-
-> Complete the `play()` function on the right so that the sequence is played correctly. 
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

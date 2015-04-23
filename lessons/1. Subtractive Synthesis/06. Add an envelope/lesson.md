@@ -1,3 +1,7 @@
+> Modify the code on the right so that **each note** has an **attack** with a time constant of `0.1` and a **release** with a time constant of `0.2`.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Gain Node
 
 You can use the [`GainNode`](https://developer.mozilla.org/en-US/docs/Web/API/GainNode) to change the output volume of sounds.
@@ -37,8 +41,3 @@ amp.gain.setTargetAtTime(0, endTime, 0.2)
 oscillator.stop(endTime + 2)
 ```
 
-# Exercise
-
-> Modify the code on the right so that **each note** has an **attack** with a time constant of `0.1` and a **release** with a time constant of `0.2`.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.

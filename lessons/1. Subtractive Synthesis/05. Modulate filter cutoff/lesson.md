@@ -1,3 +1,7 @@
+> Modify the code on the right so that **each note** has a highpass filter that **sweeps** from `10000` Hz to `500` Hz over the `duration` of the sound.
+
+You can listen to how the audio is supposed to sound by clicking **Play Answer**.
+
 # Modulating Audio Parameters
 
 An [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) can be set to a specific [`value`](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam/value) as we did in the previous lesson, but it can also be set to change over time.
@@ -24,9 +28,3 @@ Schedules a gradual exponential change in the value of the AudioParam. The chang
 # `setTargetAtTime(targetValue, startTime, timeConstant)`
 
 Schedules the start of a change to the value of the AudioParam. The change starts at the time specified in `startTime` and **exponentially moves** towards the value given by the target parameter. The **exponential decay rate** is defined by the `timeConstant` parameter, which is a time measured in seconds.
-
-# Exercise
-
-> Modify the code on the right so that **each note** has a highpass filter that **sweeps** from `10000` Hz to `500` Hz over the `duration` of the sound.
-
-You can listen to how the audio is supposed to sound by clicking **Play Answer**.
