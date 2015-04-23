@@ -24,6 +24,22 @@ Player {
     }
   }
 
+  -error {
+    border-color: #5A3B1E;
+    box-shadow: 0 0 4px #FF0020;
+
+    header {
+      background: #372222;
+      color: #F58F8F;
+
+      :after {
+        content: ": code error :("
+        color: white
+        font-weight: normal
+      }
+    }
+  }
+
   -modified {
     div {
       button.reset {

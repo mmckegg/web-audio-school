@@ -153,7 +153,11 @@ function LessonView(state, lesson) {
 
       if (err) {
         player.classList.add('-error')
-        throw err
+        if (err instanceof Error) {
+          console.log(err.message + '\n' + err.stack)
+        } else {
+          console.log(err)
+        }
       } else if (pass){
         state.verifiedLessons.add(lesson.path())
       } else {
