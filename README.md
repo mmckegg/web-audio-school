@@ -64,7 +64,6 @@ Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari
 12. Tremolo
 13. Stereo Tremolo
 14. Echo / Delay
-15. Dynamics Compression
 16. Overdrive (part 1)
 17. Overdrive (part 2)
 18. Ping Pong Delay
@@ -88,7 +87,6 @@ Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari
 - ConvolverNode
 - BiquadFilterNode
 - DelayNode
-- DynamicsCompressorNode
 - ChannelSplitterNode
 - ChannelMergerNode
 
@@ -97,6 +95,7 @@ Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari
 - AudioWorker (not yet supported by any browsers)
 - ScriptProcessor (deprecated)
 - OfflineAudioContext
+- DynamicsCompressorNode
 - AudioListener
 - PannerNode
 - AnalyserNode
