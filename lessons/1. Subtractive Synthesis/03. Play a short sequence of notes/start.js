@@ -5,6 +5,7 @@ play(1, 10, 0.5)
 play(2, 15, 0.5)
 
 function play(delay, pitch, duration) {
-  var time = audioContext.currentTime + delay
+  var startTime = audioContext.currentTime + delay
+  var endTime = startTime + duration
 
 }
