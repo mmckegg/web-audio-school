@@ -1,4 +1,4 @@
-> Add a global effect so that the audio output has a `'sine'` shaped stereo tremolo (panning between left and right speakers) at a rate of `2` Hz.
+> Add a global effect so that the audio output has a `'sine'` shaped **stereo tremolo** (panning between **left** and **right** speakers) at a rate of `2` Hz.
 
 You can listen to how the audio is supposed to sound by clicking **Play Answer**.
 

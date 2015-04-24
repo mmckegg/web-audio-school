@@ -1,4 +1,4 @@
-> Add a global effect so that the audio output has a `'sine'` shaped tremolo at a rate of `3` Hz.
+> Add a global effect so that the audio output has a `'sine'` shaped **amplitude tremolo** at a rate of `3` Hz.
 
 You can listen to how the audio is supposed to sound by clicking **Play Answer**.
 
