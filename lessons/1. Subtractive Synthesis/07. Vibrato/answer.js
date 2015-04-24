@@ -14,7 +14,7 @@ function play(delay, pitch, duration) {
   envelope.connect(audioContext.destination)
   envelope.gain.value = 0
   envelope.gain.setTargetAtTime(1, startTime, 0.1)
-  envelope.gain.setTargetAtTime(0, time + duration, 0.2)
+  envelope.gain.setTargetAtTime(0, endTime, 0.2)
 
   var oscillator = audioContext.createOscillator()
   oscillator.connect(envelope)
