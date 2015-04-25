@@ -9,7 +9,13 @@ An [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) can
 Here we will ramp the filter [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/frequency) from `200` Hz to `6000` Hz over 2 seconds:
 
 ```js
+// preset value to avoid popping on start
+filter.frequency.value = 200
+
+// schedule the start time
 filter.frequency.setValueAtTime(200, audioContext.currentTime)
+
+// ramp the value, and set end time!
 filter.frequency.linearRampToValueAtTime(6000, audioContext.currentTime + 2)
 ```
 
