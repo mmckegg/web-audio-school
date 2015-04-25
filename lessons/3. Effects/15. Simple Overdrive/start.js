@@ -1,18 +1,15 @@
 var audioContext = new AudioContext()
 var startTime = audioContext.currentTime + 0.2
 
-var shaper = audioContext.createWaveShaper()
-shaper.curve = new Float32Array([-1, 1])
-shaper.connect(audioContext.destination)
+// add effects here
 
-var amp = audioContext.createGain()
-amp.gain.value = 20
-amp.connect(shaper)
+
+// ^^^^^^^^^^^^^^^^^
 
 getSample('guitar.ogg', function play(buffer) {
   var player = audioContext.createBufferSource()
   player.buffer = buffer
-  player.connect(amp)
+  player.connect(audioContext.destination)
   player.start(startTime)
 })
 
