@@ -1,4 +1,4 @@
-> Add a basic global **overdrive** effect by turning the gain up to `6`, and clipping the signal at **+/- 1**.
+> Add a basic global **overdrive** effect by turning the gain up to `20`, and clipping the signal at **+/- 1**.
 
 # Clipping Audio
 

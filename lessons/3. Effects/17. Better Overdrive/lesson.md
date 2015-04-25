@@ -1,4 +1,4 @@
-> Improve the distortion effect by adding a **soft clipping** curve and a **high cut** of `5000` Hz.
+> Improve the distortion effect by adding a **soft clipping** curve and insert a **bandpass** of `1000` Hz before clipping.
 
 There are a number things we can do to curb the harshness of digital "overdrive".
 
@@ -24,27 +24,21 @@ function generateCurve(steps){
 
 This cleans up the sound somewhat, and makes it sound a bit clearer.
 
-# High Cut
-
-Clipping does some pretty crazy stuff to high frequencies, and things can sound better if we just cut them out.
-
-We can use a `'lowpass'` **BiquadFilterNode** to do that.
-
 # A bit of EQ
 
-If you remember way back to the start of this workshop, we talked about the different kinds of **BiquadFilterNode** types. `'lowpass'`, '`highpass`', '`bandpass`', '`lowshelf`', '``highshelf', '`peaking`', and '`notch`'.
+Clipping does some pretty crazy stuff to low and high frequencies, and things can sound better if we just cut them out.
 
-We can pump up the mids a bit, for a more guitar amp like, sound using a `'peaking'` filter.
+We can use a `'bandpass'` **BiquadFilterNode** to do that.
 
-The `'peaking'` filter boosts all frequencies within a range of the specified `frequency` by the specified `gain` in decibels (dB).
+You may remember from an earlier lesson that `'bandpass'` attenuates frequencies lower and higher of the specified `'frequency'`. It's kind of like a `'lowpass'` and `'highpass'` combined together.
 
-If we wanted to **boost** frequencies near **800 Hz** by **2 dB**:
+Sounds best if placed **before the WaveShaperNode** in the signal chain.
 
 ```js
-var mids = audioContext.createBiquadFilter()
-mids.type = 'peaking'
-mids.frequency.value = 400
-mids.gain.value = 10
+var bandpass = audioContext.createBiquadFilter()
+bandpass.type = 'bandpass'
+bandpass.frequency.value = 5000
+bandpass.connect(shaper)
 ```
 
 # There. Much... better? Maybe.
