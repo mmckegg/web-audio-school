@@ -4,7 +4,7 @@
 
 Ping pong delay is much like standard delay, except that each time the sound feeds back, it swaps channels. So it sounds like the echo is bouncing backwards and forwards (left and right).
 
-Making **stereo ping pong delay** is very similar to a standard mono one (like in an earlier exercise), except we'll need two instances of **DelayNode** and a special kind of AudioNode called the **ChannelMergerNode**.
+Making **stereo ping pong delay** is very similar to a standard mono one, except we'll need two instances of **DelayNode** and a special kind of AudioNode called the **ChannelMergerNode**.
 
 Let's create an `input` and `output` **GainNode** that we'll hang everything else off:
 

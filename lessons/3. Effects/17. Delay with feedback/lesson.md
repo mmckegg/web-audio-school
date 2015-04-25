@@ -18,7 +18,7 @@ input.connect(delay)
 
 To acheive this effect we'll need to create a feedback loop of audio where each loop is delayed by a certain amount of time. We can use the [DelayNode](https://developer.mozilla.org/en-US/docs/Web/API/DelayNode) to add a delay in the signal path, and a couple instances of [GainNode](https://developer.mozilla.org/en-US/docs/Web/API/GainNode) to hook everything up.
 
-Here we create an echo effect with a delay time of **`1` second`** and a feedback ratio of `0.2` (fast trail off):
+Here we create an echo effect with a delay time of **`1` second** and a feedback ratio of `0.2` (fast trail off):
 
 ```js
 var input = audioContext.createGain()
