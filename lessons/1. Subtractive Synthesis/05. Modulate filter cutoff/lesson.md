@@ -1,4 +1,4 @@
-> Modify the code on the right so that **each note** has a highpass filter that **sweeps** from `10000` Hz to `500` Hz over the `duration` of the sound (linear).
+> Modify the code on the right so that **each note** has a **highpass** filter that **sweeps** from `10000` Hz to `500` Hz over the `duration` of the sound (linear).
 
 You can listen to how the audio is supposed to sound by clicking **Play Answer**.
 

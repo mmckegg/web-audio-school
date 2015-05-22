@@ -19,7 +19,7 @@ That's because `oscillator.frequency` is an instance of [AudioParam](https://dev
 
 Most properties on Audio Nodes are instances of [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam). They let you do all kinds of neat things with parameters, such as automation over time, and allow one AudioNode to modulate another's value. 
 
-We will get into more depth later but for now **all you need to know is `param.value = 123`.
+We will get into more depth later but for now **all you need to know is `param.value = 123`**.
 
 So to set the frequency of the oscillator to `880` Hz, you would do this:
 

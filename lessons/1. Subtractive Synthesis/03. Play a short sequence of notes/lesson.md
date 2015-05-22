@@ -4,9 +4,9 @@ You can listen to how the audio is supposed to sound by clicking **Play Answer**
 
 # Scheduling Events
 
-Like we saw in the previous example, we need to specify the `start` and `stop` time of each generator node. This is specified relative to `audioContext.currentTime` which is time in seconds since the `AudioContext` was first created.
+Like we saw in the previous example, we need to specify the `start` and `stop` time of each generator node. This is specified relative to `audioContext.currentTime` which is time in **seconds** since the `AudioContext` was first created.
 
-Play a sound 3 seconds after `AudioContext` created and stop after 1 second:
+Play a sound `3` seconds after `AudioContext` created and stop after `1` second:
 
 ```js
 play(3, 1)
