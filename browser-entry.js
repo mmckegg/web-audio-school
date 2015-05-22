@@ -8,6 +8,9 @@ var state = require('./state')
 var LessonView = require('./views/lesson')
 var IndexView = require('./views/index')
 
+// set persistance prefix
+state.workshop.set('web-audio')
+
 var lastElement = null
 var lastView = null
 var lastLesson = null

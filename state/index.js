@@ -16,15 +16,16 @@ var lessonOrder = Object.keys(lessons).reduce(function(result, groupName) {
 
 var state = ObservStruct({
   view: Observ('index'),
+  workshop: Observ(),
   selectedLesson: Observ(lessonOrder[0]),
   verifiedLessons: ObservSet([]),
   lessons: Observ([]),
   version: package.version
 })
 
-persist('selectedLesson', state.selectedLesson)
-persist('verifiedLessons', state.verifiedLessons)
-persist('view', state.view)
+persist(state.workshop() + '/selectedLesson', state.selectedLesson)
+persist(state.workshop() + '/verifiedLessons', state.verifiedLessons)
+persist(state.workshop() + '/view', state.view)
 
 state.audioContext = new AudioContext()
 
@@ -55,7 +56,8 @@ state.getLesson = function(path) {
       verifyTime: getDuration(data['answer.js']),
       answer: data['answer.js'],
       lesson: data['lesson.md'],
-      start: data['start.js']
+      start: data['start.js'],
+      workshop: state.workshop()
     })
   }
 }

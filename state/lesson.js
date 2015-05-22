@@ -7,6 +7,7 @@ function Lesson(descriptor) {
 
   var obs = ObservStruct({
     title: Observ(descriptor.title),
+    workshop: Observ(descriptor.workshop),
     path: Observ(descriptor.path),
     verifyTime: Observ(descriptor.verifyTime),
     lesson: Observ(descriptor.lesson),
@@ -19,18 +20,18 @@ function Lesson(descriptor) {
     obs.file.set(descriptor.start)
   }
 
-  if (localStorage['lessons/' + descriptor.path]) {
+  if (localStorage[obs.workshop() + '/lessons/' + descriptor.path]) {
     obs.modified.set(true)
-    obs.file.set(localStorage['lessons/' + descriptor.path])
+    obs.file.set(localStorage[obs.workshop() + '/lessons/' + descriptor.path])
   }
 
   obs.file(function(data) {
     if (data === descriptor.start) {
       obs.modified() && obs.modified.set(false)
-      delete localStorage['lessons/' + descriptor.path]
+      delete localStorage[obs.workshop() + '/lessons/' + descriptor.path]
     } else {
       !obs.modified() && obs.modified.set(true)
-      localStorage['lessons/' + descriptor.path] = data
+      localStorage[obs.workshop() + '/lessons/' + descriptor.path] = data
     }
   })
 
