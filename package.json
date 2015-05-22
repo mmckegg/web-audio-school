@@ -21,13 +21,14 @@
     "through2": "^0.6.5"
   },
   "devDependencies": {
-    "buildbranch": "0.0.3"
+    "buildbranch": "0.0.3",
+    "uglify-js": "^2.4.23"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "beefy browser-entry.js:bundle.js --index=resources/index.js --cwd resources -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]",
     "clean-static": "rm -rf build",
-    "build-static": "npm run clean-static && mkdir build && cp -r resources/* build/ && browserify browser-entry -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ] -o build/bundle.js",
+    "build-static": "npm run clean-static && mkdir build && cp -r resources/* build/ && browserify browser-entry -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ] | uglifyjs > build/bundle.js",
     "deploy": "npm run build-static && buildbranch gh-pages build"
   },
   "preferGlobal": true,
