@@ -1,4 +1,4 @@
-> Add a global **stereo ping pong delay** effect, bouncing **left to right**, a delay **time** of `3/8` and **feedback** ratio of `0.5`.
+> Add a global **stereo ping pong delay** effect, bouncing **left to right**, a delay **time** of `3/8` and **feedback** ratio of `0.4`.
 
 # Ping pong?
 
