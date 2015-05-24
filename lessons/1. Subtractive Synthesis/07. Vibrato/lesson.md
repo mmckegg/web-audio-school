@@ -36,7 +36,7 @@ lfo.stop(audioContext.currentTime+2)
 
 If we want to add a vibrato effect (i.e. pitch modulation) to an oscillator, we can use a similar technique to above, except we'll need to amplify the output of the `lfo` before we connect it to `oscillator.detune`.
 
-This example modulates the `detune` value by **+/- 30 cents** at 2 Hz.
+This example modulates the `detune` value by **+/- 100 cents** at 2 Hz.
 
 ```js
 var vibrato = audioContext.createGain()
