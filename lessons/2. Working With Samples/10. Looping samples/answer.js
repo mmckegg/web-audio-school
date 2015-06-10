@@ -10,7 +10,8 @@ getSample('zara1.ogg', function play(buffer) {
   player.loopStart = 3
   player.loopEnd = 4
   player.connect(audioContext.destination)
-  player.start(startTime, 0, 7)
+  player.start(startTime, 0)
+  player.stop(startTime + 7)
 })
   
 function getSample(url, cb) {

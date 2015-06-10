@@ -23,16 +23,8 @@ player.loopEnd = 2
 
 If we ran the code at this point, the player would **start** at `0`, **continue** until playback hits `loopEnd`, then **jump** to `loopStart`, continuing until it hits `loopEnd`, and so on, **forever**!
 
-The **offset** and **duration** arguments passed to [`player.start`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/start) still have effect. We can use `offset` to choose what position to start playing the audio, and `duration` to set a maximum time (instead of looping forever):
+Let's put a `stop()` to that:
 
 ```js
-player.start(audioContext.currentTime, offset, duration)
+player.stop(startTime + duration)
 ```
-
-Or instead of setting a duration, we can schedule a `stop`:
-
-```js
-player.start(audioContext.currentTime, offset)
-player.stop(audioContext.currentTime + duration)
-```
-
