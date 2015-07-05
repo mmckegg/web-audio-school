@@ -15,40 +15,41 @@ var lastElement = null
 var lastView = null
 var lastLesson = null
 
-watch(state, function refreshView() {
+watch(state, function refreshView () {
+  var element = null
   if (state.view() === 'lesson') {
     if (lastLesson !== state.selectedLesson() || lastView !== 'lesson') {
       lastLesson = state.selectedLesson()
       var lesson = state.getLesson(state.selectedLesson())
       if (lesson) {
-        var element = LessonView(state, lesson)
+        element = LessonView(state, lesson)
         setView(element)
       } else {
         state.view.set('index')
       }
     }
   } else if (state.view() !== lastView) {
-    var element = IndexView(state)
+    element = IndexView(state)
     setView(element)
     scrollSelectedIntoView()
   }
   lastView = state.view()
 })
 
-function scrollSelectedIntoView() {
+function scrollSelectedIntoView () {
   var selected = document.querySelector('.-selected')
   if (selected) {
     if (selected.scrollIntoViewIfNeeded) {
-      selected.scrollIntoViewIfNeeded() 
+      selected.scrollIntoViewIfNeeded()
     } else if (selected.scrollIntoView) {
-      selected.scrollIntoView(false) 
+      selected.scrollIntoView(false)
     }
   }
 }
 
-function setView(element) {
+function setView (element) {
   if (lastElement) {
-    lastElement.destroy&&lastElement.destroy()
+    lastElement.destroy && lastElement.destroy()
     lastElement.remove()
   }
   document.body.appendChild(element)

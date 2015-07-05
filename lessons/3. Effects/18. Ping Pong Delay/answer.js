@@ -1,4 +1,4 @@
-//# duration=4.5
+// # duration=4.5
 
 var audioContext = new AudioContext()
 
@@ -23,21 +23,21 @@ feedback.gain.value = 0.4
 leftDelay.connect(merger, 0, 0)
 rightDelay.connect(merger, 0, 1)
 
-leftDelay.delayTime.value = 3/8
-rightDelay.delayTime.value = 3/8
+leftDelay.delayTime.value = 3 / 8
+rightDelay.delayTime.value = 3 / 8
 
-play(1/8, 3, 0.05)
-play(2/8, 7, 0.05)
-play(3/8, 15, 0.05)
+play(1 / 8, 3, 0.05)
+play(2 / 8, 7, 0.05)
+play(3 / 8, 15, 0.05)
 
-function play(startAfter, pitch, duration) {
+function play (startAfter, pitch, duration) {
   var time = audioContext.currentTime + startAfter
 
   var oscillator = audioContext.createOscillator()
   oscillator.connect(input)
 
   oscillator.type = 'square'
-  oscillator.detune.value = pitch * 100 
+  oscillator.detune.value = pitch * 100
 
   oscillator.start(time)
   oscillator.stop(time + duration)

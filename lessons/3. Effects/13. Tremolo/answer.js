@@ -1,4 +1,4 @@
-//# duration=2.5
+// # duration=2.5
 
 var audioContext = new AudioContext()
 var tremolo = audioContext.createGain()
@@ -15,19 +15,18 @@ lfo.type = 'sine'
 lfo.start(audioContext.currentTime)
 lfo.connect(shaper)
 
-
 play(0, -9, 2.25)
 play(0, 3, 2.25)
 play(0, 0, 2.25)
 
-function play(delay, pitch, duration) {
+function play (delay, pitch, duration) {
   var time = audioContext.currentTime + delay
 
   var oscillator = audioContext.createOscillator()
   oscillator.connect(tremolo)
 
   oscillator.type = 'triangle'
-  oscillator.detune.value = pitch * 100 
+  oscillator.detune.value = pitch * 100
 
   oscillator.start(time)
   oscillator.stop(time + duration)

@@ -8,7 +8,7 @@ var send = require('../lib/send')
 
 module.exports = LessonView
 
-function LessonView(state, lesson) {
+function LessonView (state, lesson) {
   var audio = state.audioContext
   var editor = EditorWidget(lesson.file, verify)
 
@@ -21,20 +21,20 @@ function LessonView(state, lesson) {
   var answerCanvas = h('canvas')
   var stopOnNoSignal = false
 
-  var spectrograph = Spectrograph(verifier.getAnalyser(), { 
-    canvas: canvas, 
+  var spectrograph = Spectrograph(verifier.getAnalyser(), {
+    canvas: canvas,
     beforeRender: checkMatch,
     speed: 0,
     minHsl: [-50, 0, 10]
   })
 
-  var answerSpectrograph = Spectrograph(verifier.getAnswerAnalyser(), { 
+  var answerSpectrograph = Spectrograph(verifier.getAnswerAnalyser(), {
     canvas: answerCanvas,
     speed: 0,
     minHsl: [200, 0, 10]
   })
 
-  function checkMatch(){
+  function checkMatch () {
     if (stopOnNoSignal) {
       spectrograph.maxHsl = [0, 100, 50]
       spectrograph.minHsl = [0, 40, 10]
@@ -45,7 +45,7 @@ function LessonView(state, lesson) {
         spectrograph.speed = 0
       }
 
-    } else if (verifier.checkMatch()){
+    } else if (verifier.checkMatch()) {
       spectrograph.maxHsl = [100, 100, 100]
       spectrograph.minHsl = [200, 0, 10]
     } else {
@@ -73,12 +73,12 @@ function LessonView(state, lesson) {
         h('button -index', { onclick: send(state.view.set, 'index') }, 'Index'),
         h('button -prev', { onclick: state.prevLesson }, 'Prev'),
         h('button -next', { onclick: state.nextLesson }, 'Next')
-      ]),
+      ])
     ]),
     markdownElement(lesson.lesson())
   ])
 
-  watch(state.verifiedLessons, function() {
+  watch(state.verifiedLessons, function () {
     if (state.verifiedLessons.has(lesson.path())) {
       player.classList.add('-verified')
       lessonElement.classList.add('-verified')
@@ -88,7 +88,7 @@ function LessonView(state, lesson) {
     }
   })
 
-  watch(lesson.modified, function(modified) {
+  watch(lesson.modified, function (modified) {
     if (modified) {
       player.classList.add('-modified')
     } else {
@@ -116,7 +116,7 @@ function LessonView(state, lesson) {
     ])
   ])
 
-  result.destroy = function() {
+  result.destroy = function () {
     verifier.stop()
   }
 
@@ -124,14 +124,14 @@ function LessonView(state, lesson) {
 
   // scoped
 
-  function markdownElement(md){
+  function markdownElement (md) {
     var el = h('div')
     el.innerHTML = markdown.render(md)
     return el
   }
 
-  function playAnswer(){
-    verifier.playAnswer(function() {
+  function playAnswer () {
+    verifier.playAnswer(function () {
       answerSpectrograph.speed = 0
       answerPlayer.classList.remove('-playing')
     })
@@ -142,11 +142,10 @@ function LessonView(state, lesson) {
     answerSpectrograph.minHsl = [150, 0, 10]
   }
 
-  function verify() {
+  function verify () {
     player.classList.remove('-error')
 
-    verifier.verify(function(err, pass) {
-
+    verifier.verify(function (err, pass) {
       player.classList.remove('-playing')
       spectrograph.speed = 0
       answerSpectrograph.speed = 0
@@ -158,7 +157,7 @@ function LessonView(state, lesson) {
         } else {
           console.log(err)
         }
-      } else if (pass){
+      } else if (pass) {
         state.verifiedLessons.add(lesson.path())
       } else {
         state.verifiedLessons.remove(lesson.path())
@@ -169,7 +168,6 @@ function LessonView(state, lesson) {
           player.classList.add('-playing')
         }
       }
-
 
     })
 

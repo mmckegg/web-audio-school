@@ -6,6 +6,10 @@
   "bin": {
     "web-audio-school": "run.js"
   },
+  "standard": {
+    "global": ["AudioContext", "XMLHttpRequest"],
+    "ignore": ["lessons/**/start.js"]
+  },
   "dependencies": {
     "beefy": "^2.1.4",
     "brace": "^0.5.1",
@@ -22,14 +26,15 @@
   },
   "devDependencies": {
     "buildbranch": "0.0.3",
+    "standard": "^4.5.2",
     "uglify-js": "^2.4.23"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard",
     "start": "beefy browser-entry.js:bundle.js --index=resources/index.js --cwd resources -- -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ]",
     "clean-static": "rm -rf build",
     "build-static": "npm run clean-static && mkdir build && cp -r resources/* build/ && browserify browser-entry -t [ ./lib/evalify -f lessons/index.js -f styles/index.js ] | uglifyjs > build/bundle.js",
-    "deploy": "npm run build-static && buildbranch gh-pages build"
+    "deploy": "standard && npm run build-static && buildbranch gh-pages build"
   },
   "preferGlobal": true,
   "repository": {

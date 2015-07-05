@@ -1,7 +1,7 @@
 var audioContext = new AudioContext()
 var startTime = audioContext.currentTime + 0.2
 
-getSample('guitar.ogg', function play(buffer) {
+getSample('guitar.ogg', function play (buffer) {
   // Add reverb logic here
   var player = audioContext.createBufferSource()
   player.buffer = buffer
@@ -9,11 +9,11 @@ getSample('guitar.ogg', function play(buffer) {
   player.start(startTime)
 })
 
-function getSample(url, cb) {
+function getSample (url, cb) {
   var request = new XMLHttpRequest()
   request.open('GET', url)
   request.responseType = 'arraybuffer'
-  request.onload = function() {
+  request.onload = function () {
     audioContext.decodeAudioData(request.response, cb)
   }
   request.send()

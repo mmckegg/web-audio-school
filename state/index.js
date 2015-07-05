@@ -1,14 +1,14 @@
-
 var Observ = require('observ')
 var ObservStruct = require('observ-struct')
 var ObservSet = require('../lib/observ-set')
 var lessons = require('../lessons')
 var Lesson = require('./lesson')
 var persist = require('../lib/persist')
-var package = require('../package.json')
+var pkgInfo = require('../package.json')
+var AudioContext = window.AudioContext
 
-var lessonOrder = Object.keys(lessons).reduce(function(result, groupName) {
-  Object.keys(lessons[groupName]).forEach(function(name) {
+var lessonOrder = Object.keys(lessons).reduce(function (result, groupName) {
+  Object.keys(lessons[groupName]).forEach(function (name) {
     result.push(groupName + '/' + name)
   })
   return result
@@ -20,7 +20,7 @@ var state = ObservStruct({
   selectedLesson: Observ(lessonOrder[0]),
   verifiedLessons: ObservSet([]),
   lessons: Observ([]),
-  version: package.version
+  version: pkgInfo.version
 })
 
 persist(state.workshop() + '/selectedLesson', state.selectedLesson)
@@ -29,10 +29,10 @@ persist(state.workshop() + '/view', state.view)
 
 state.audioContext = new AudioContext()
 
-state.lessons.set(Object.keys(lessons).map(function(groupName) {
+state.lessons.set(Object.keys(lessons).map(function (groupName) {
   return {
     name: groupName,
-    lessons: Object.keys(lessons[groupName]).map(function(name) {
+    lessons: Object.keys(lessons[groupName]).map(function (name) {
       return {
         title: name,
         path: groupName + '/' + name
@@ -41,12 +41,12 @@ state.lessons.set(Object.keys(lessons).map(function(groupName) {
   }
 }))
 
-state.viewLesson = function(path) {
+state.viewLesson = function (path) {
   state.selectedLesson.set(path)
   state.view.set('lesson')
 }
 
-state.getLesson = function(path) {
+state.getLesson = function (path) {
   var parts = path.split('/')
   var data = lessons[parts[0]][parts[1]]
   if (data) {
@@ -62,18 +62,18 @@ state.getLesson = function(path) {
   }
 }
 
-state.nextLesson = function() {
+state.nextLesson = function () {
   var index = lessonOrder.indexOf(state.selectedLesson())
-  state.selectedLesson.set(lessonOrder[index+1] || lessonOrder[0])
+  state.selectedLesson.set(lessonOrder[index + 1] || lessonOrder[0])
 }
 
-state.prevLesson = function() {
+state.prevLesson = function () {
   var index = lessonOrder.indexOf(state.selectedLesson())
-  state.selectedLesson.set(lessonOrder[index-1] || lessonOrder[0])
+  state.selectedLesson.set(lessonOrder[index - 1] || lessonOrder[0])
 }
 
-function getDuration(src) {
-  var match = /\/\/# duration=([0-9\.]+)/.exec(src)
+function getDuration (src) {
+  var match = /\/\/[ ]?# duration=([0-9\.]+)/.exec(src)
   return match && parseFloat(match[1]) || 2
 }
 
