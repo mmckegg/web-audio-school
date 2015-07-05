@@ -9,14 +9,14 @@ A location's properties can be captured by recording an audio sample in the desi
 The mathematical concept that is applied to achieve this affect is called **convolution**. In the Web Audio API we can apply convolution effects by leveraging the **ConvolverNode**.
 
 ```js
-getSample('impulseresponse.mp3'), function(impulse){
+getSample('impulseresponse.mp3', function(impulse){
   var convolver = audioContext.createConvolver()
   convolver.buffer = impulse
 
   // myAudioSample is fetched and created before
   myAudioSample.connect(convolver)
   convolver.connect(audioContext.destination)
-}
+})
 ```
 
 As you can see, impulse responses are handled like audio buffers (fetched via XHR and then decoded). The convolution is applied to whichever node that is connected to the convolver. Be aware that convoluting a signal is a pretty calculation-heavy operation and should be used sparsely (esp. on mobile devices).
