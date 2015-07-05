@@ -15,7 +15,6 @@ We will primarily focus on using the Web Audio API for music, but the concepts h
 ## TODO
 
 - Handle user code errors and display in editor
-- Part III
 
 ## Install via [npm](https://www.npmjs.com/package/web-audio-school)
 
@@ -98,3 +97,14 @@ Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari
 - AudioListener
 - PannerNode
 - AnalyserNode
+
+## License
+
+MIT
+
+## Contributors
+
+- [Matt McKegg](https://github.com/mmckegg)
+- [Jan Monschke](https://github.com/janmonschke)
+
+This is an OPEN open source project. See [CONTRIBUTING.md](https://github.com/mmckegg/web-audio-school/blob/master/CONTRIBUTING.md) for details 
