@@ -1,3 +1,6 @@
+// fix up in case of browser vendor prefixing
+window.AudioContext = window.AudioContext || window.webkitAudioContext
+
 var insertCss = require('insert-css')
 var watch = require('observ/watch')
 
