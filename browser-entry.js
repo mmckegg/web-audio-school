@@ -1,4 +1,5 @@
-// fix up in case of browser vendor prefixing
+// safari support
+require('stereo-panner-node').polyfill()
 window.AudioContext = window.AudioContext || window.webkitAudioContext
 
 var insertCss = require('insert-css')

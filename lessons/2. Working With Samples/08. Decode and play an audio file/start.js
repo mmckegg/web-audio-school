@@ -3,7 +3,9 @@ var audioContext = new AudioContext()
 // wait 100ms for sample to download/decode
 var startTime = audioContext.currentTime + 0.2
 
-getSample('zara1.ogg', function play (buffer) {})
+getSample('zara.wav', function play (buffer) {
+
+})
 
 function getSample (url, cb) {
   var request = new XMLHttpRequest()

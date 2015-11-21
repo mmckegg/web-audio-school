@@ -34,7 +34,7 @@ Now navigate to [localhost:9966](http://localhost:9966).
 
 ## Browser Support
 
-Works in latest versions of Chrome and Firefox. Currently doesn't work in Safari.
+Works in latest versions of Chrome, Firefox, Safari.
 
 [Internet Explorer doesn't support the Web Audio API yet](https://status.modern.ie/webaudioapi).
 
@@ -107,4 +107,4 @@ MIT
 - [Matt McKegg](https://github.com/mmckegg)
 - [Jan Monschke](https://github.com/janmonschke)
 
-This is an OPEN open source project. See [CONTRIBUTING.md](https://github.com/mmckegg/web-audio-school/blob/master/CONTRIBUTING.md) for details 
+This is an OPEN open source project. See [CONTRIBUTING.md](https://github.com/mmckegg/web-audio-school/blob/master/CONTRIBUTING.md) for details

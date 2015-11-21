@@ -9,7 +9,7 @@ amp.gain.value = 20
 amp.connect(shaper)
 shaper.connect(audioContext.destination)
 
-getSample('guitar.ogg', function play (buffer) {
+getSample('guitar.wav', function play (buffer) {
   var player = audioContext.createBufferSource()
   player.buffer = buffer
   player.connect(amp)

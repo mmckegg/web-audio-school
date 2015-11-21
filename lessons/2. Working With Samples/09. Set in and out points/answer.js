@@ -3,7 +3,7 @@
 var audioContext = new AudioContext()
 var startTime = audioContext.currentTime + 0.2
 
-getSample('zara1.ogg', function play (buffer) {
+getSample('zara.wav', function play (buffer) {
   var player = audioContext.createBufferSource()
   player.buffer = buffer
   player.connect(audioContext.destination)

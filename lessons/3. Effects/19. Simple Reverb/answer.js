@@ -3,7 +3,7 @@
 var audioContext = new AudioContext()
 var startTime = audioContext.currentTime + 0.2
 
-getSample('guitar.ogg', function play (buffer) {
+getSample('guitar.wav', function play (buffer) {
   getSample('spring.mp3', function play (impulseBuffer) {
     var player = audioContext.createBufferSource()
     player.buffer = buffer

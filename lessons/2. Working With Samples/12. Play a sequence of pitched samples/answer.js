@@ -2,7 +2,7 @@
 var audioContext = new AudioContext()
 var startTime = audioContext.currentTime + 0.1
 
-getSample('vox.ogg', function (buffer) {
+getSample('vox.wav', function (buffer) {
   play(0, -12)
   play(1, -5)
   play(2, 0)

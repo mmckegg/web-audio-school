@@ -5,7 +5,7 @@ var startTime = audioContext.currentTime + 0.2
 
 // ^^^^^^^^^^^^^^^^^
 
-getSample('guitar.ogg', function play (buffer) {
+getSample('guitar.wav', function play (buffer) {
   var player = audioContext.createBufferSource()
   player.buffer = buffer
   player.connect(audioContext.destination)
