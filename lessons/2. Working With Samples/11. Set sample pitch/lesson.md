@@ -24,8 +24,6 @@ player.playbackRate.value = 0.8
 
 You may notice that the audio **cuts out early** when slowing it down. To fix it, make sure you specify the correct duration when you call `player.start`.
 
-**Currently this is a bug in Chrome** - such is the nature of new Web APIs!
-
 ```js
 player.start(audioContext.currentTime, 0, buffer.duration)
 ```
