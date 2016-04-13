@@ -19,11 +19,3 @@ If we want to slow the audio down (reduce pitch), we specify a decimal:
 // play at 80% the original speed
 player.playbackRate.value = 0.8
 ```
-
-# Browser Specific Bugs
-
-You may notice that the audio **cuts out early** when slowing it down. To fix it, make sure you specify the correct duration when you call `player.start`.
-
-```js
-player.start(audioContext.currentTime, 0, buffer.duration)
-```
