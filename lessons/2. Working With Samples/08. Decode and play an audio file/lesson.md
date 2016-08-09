@@ -24,7 +24,7 @@ audioContext.decodeAudioData(arrayBuffer, function(buffer) {
 
 # Playing Decoded Audio Buffers
 
-Create an [AudioBufferSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode) using [`audioContext.createBufferSource`](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createBufferSource) then set it's [`buffer`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/buffer) property to the decoded `buffer`.
+Create an [AudioBufferSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode) using [`audioContext.createBufferSource`](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createBufferSource) then set its [`buffer`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/buffer) property to the decoded `buffer`.
 
 ```js
 var player = audioContext.createBufferSource()

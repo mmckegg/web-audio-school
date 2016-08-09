@@ -4,7 +4,7 @@ You can listen to how the audio is supposed to sound by clicking **Play Answer**
 
 # Create a Tremolo Effect
 
-The simple way of creating a tremolo effect is using a GainNode with it's `gain` AudioParam modulated by a low `frequency` OscillatorNode.
+The simple way of creating a tremolo effect is using a GainNode with its `gain` AudioParam modulated by a low `frequency` OscillatorNode.
 
 ```js
 var tremolo = audioContext.createGain()

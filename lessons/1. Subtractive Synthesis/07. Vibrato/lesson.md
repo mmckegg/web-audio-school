@@ -6,7 +6,7 @@ You can listen to how the audio is supposed to sound by clicking **Play Answer**
 
 As well as setting the time events manually as in _previous_ lessons, you can use an [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) to [modulate the value](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode/connect(AudioParam)).
 
-The easiest way to use this is with an [OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode) with it's [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/frequency) set to something low that we can perceive (`< 20` Hz).
+The easiest way to use this is with an [OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode) with its [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode/frequency) set to something low that we can perceive (`< 20` Hz).
 
 Here we create a simple tremolo effect, where the `gain` will oscillate between **0** and **2** at **5 Hz**.
 
