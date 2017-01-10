@@ -1,6 +1,6 @@
 {
   "name": "web-audio-school",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "An intro to the Web Audio API by a series of self-guided workshops.",
   "main": "index.js",
   "bin": {
