@@ -12,6 +12,8 @@ filter.connect(audioContext.destination)
 oscillator.connect(filter)
 ```
 
+**Note:** the connect() function acts as a patch from one device (the oscillator or the filter) to another.  You'll see above that we've connected the oscillator to the filter.  If both are connected to the [destination] (output to the speakers, in our case), the unfiltered audio signal will play along with the filtered one.  Along with adding code to create and connect the filter, you'll need to remove (or comment out) a certain line to make sure they connect like so: oscillator --> filter --> destination
+
 The most common [types of filters](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/type) are `'lowpass'`, `'highpass'`, and `'bandpass'`.
 
 
