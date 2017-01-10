@@ -14,9 +14,24 @@ oscillator.connect(filter)
 
 The most common [types of filters](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/type) are `'lowpass'`, `'highpass'`, and `'bandpass'`.
 
+
+# Connections
+
+The `connect()` function acts as a patch cable from one device (the oscillator or the filter) to another.
+
+In previous lessons, we've been connecting the output of an `OscillatorNode` directly to `audioContext.destination` (which in most cases would be your speakers). But in this lesson, we will instead connect the `OscillatorNode` to the `BiquadFilterNode`, and then finally connect the `BiquadFilterNode` to the destination.
+
+We want this:
+
+```
+[oscillator] -> [filter] -> [audioContext.destination]
+```
+
+**Note:** In this lesson you will need to remove the existing `oscillator.connect(audioContext.destination)`, otherwise the unfiltered audio signal will play along with the filtered one.
+
 # Lowpass
 
-The lowpass filter is the default type. It allows all signals with a frequency lower than [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/frequency) to pass and attenuates all signals with higher frequency. 
+The lowpass filter is the default type. It allows all signals with a frequency lower than [`frequency`](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode/frequency) to pass and attenuates all signals with higher frequency.
 
 ```js
 // filter out all frequencies above 500 Hz
