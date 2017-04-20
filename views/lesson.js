@@ -144,6 +144,7 @@ function LessonView (state, lesson) {
 
   function verify () {
     player.classList.remove('-error')
+    player.firstChild.innerHTML = 'Your Audio' // reset audio/error message
 
     verifier.verify(function (err, pass) {
       player.classList.remove('-playing')
@@ -153,6 +154,7 @@ function LessonView (state, lesson) {
       if (err) {
         player.classList.add('-error')
         if (err instanceof Error) {
+          player.firstChild.innerHTML = err.message;
           console.log(err.message + '\n' + err.stack)
         } else {
           console.log(err)
