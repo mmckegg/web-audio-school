@@ -32,8 +32,8 @@ Player {
       background: #372222;
       color: #F58F8F;
 
-      :after {
-        content: ": code error :("
+      :before {
+        content: "code error :( "
         color: white
         font-weight: normal
       }
